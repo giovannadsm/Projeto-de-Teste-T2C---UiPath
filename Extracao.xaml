@@ -227,7 +227,7 @@
     </uix:NApplicationCard>
     <Sequence DisplayName="Contagem de Celulas" sap:VirtualizedContainerService.HintSize="554,733" sap2010:WorkflowViewState.IdRef="Sequence_8">
       <Sequence.Variables>
-        <Variable x:TypeArguments="sd:DataTable" Name="WIcount" />
+        <Variable x:TypeArguments="sd:DataTable" Name="WIcontador" />
         <Variable x:TypeArguments="x:Int32" Name="contador">
           <Variable.Default>
             <Literal x:TypeArguments="x:Int32" Value="1" />
@@ -237,6 +237,7 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="512,641" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_1">
@@ -247,7 +248,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:FilterDataTable DataTable="[tabelaCompleta]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[WIcount]" SelectColumnsMode="Keep">
+            <ui:FilterDataTable DataTable="[tabelaCompleta]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="434,160" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[WIcontador]" SelectColumnsMode="Keep">
               <ui:FilterDataTable.Filters>
                 <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
                   <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
@@ -266,7 +267,7 @@
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
             </ui:FilterDataTable>
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,84" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;Contagem WI&quot; + contador.ToString + &quot;: &quot; + WIcount.Rows.Count.ToString]" />
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="434,84" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="[&quot;Contagem WI&quot; + contador.ToString + &quot;: &quot; + WIcontador.Rows.Count.ToString]" />
             <Assign sap:VirtualizedContainerService.HintSize="434,60" sap2010:WorkflowViewState.IdRef="Assign_3">
               <Assign.To>
                 <OutArgument x:TypeArguments="x:Int32">[contador]</OutArgument>
